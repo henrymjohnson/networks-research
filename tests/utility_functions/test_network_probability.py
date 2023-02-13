@@ -48,6 +48,9 @@ class TestDegreeDistributionOfRandomNetwork(object):
         assert pytest.approx(degree_distribution_of_random_network(2, 2, 0.5)) == 0
     def test_prob_fifty_three_nodes_one_edge(self):
         assert pytest.approx(degree_distribution_of_random_network(3, 1, 0.5)) == 0.5
+    def test_prob_with_threshhold_where_isolated_nodes_disappear(self):
+        p = np.log(50)/50
+        assert pytest.approx(degree_distribution_approximation(50, 2, p)) == 0.1589404
 
     def test_prob_fifty_zero_nodes_zero_edges(self):
         with pytest.raises(ValueError) as excinfo:
@@ -81,6 +84,9 @@ class TestDegreeDistributionApproximation(object):
         assert pytest.approx(degree_distribution_approximation(500, 5, 0.25)) == 0.0000000
     def test_prob_fifty_hundred_nodes_five_edges(self):
         assert pytest.approx(degree_distribution_approximation(10, 2, 0.75)) == 0.0266741
+    def test_prob_with_threshhold_where_isolated_nodes_disappear(self):
+        p = np.log(50)/50
+        assert pytest.approx(degree_distribution_approximation(50, 2, p)) == 0.1589404
 
     def test_prob_fifty_zero_nodes_zero_edges(self):
         with pytest.raises(ValueError) as excinfo:
