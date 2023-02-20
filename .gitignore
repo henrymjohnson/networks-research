@@ -1,8 +1,5 @@
 # ignore all .pyc files
 *.pyc
 
-# ignore all files in the notes directory
-src/notes/exercises/*
-
 # ignore all files in __pycache__
 __pycache__/
